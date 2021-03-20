@@ -3,11 +3,10 @@ import { Response, Request } from "express";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
 
-class CreateUserController {
+export class CreateUserController {
   constructor(private createUserUseCase: CreateUserUseCase) { }
 
   handle(request: Request, response: Response): Response {
-    // Complete aqui
     try {
       const { name, email } = request.body;
 
@@ -16,9 +15,7 @@ class CreateUserController {
       return response.status(201).json(newUser);
 
     } catch (error) {
-      return response.status(400).json({ error: "Deu erro" });
+      return response.status(400).json({ error: error.message });
     }
   }
 }
-
-export { CreateUserController };

@@ -1,7 +1,6 @@
 import { v4 as uuidV4 } from "uuid";
 
 export class User {
-  // Complete aqui
   id?: string;
   name: string;
   email: string;

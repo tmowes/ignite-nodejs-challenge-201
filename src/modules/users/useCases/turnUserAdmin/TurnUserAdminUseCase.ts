@@ -5,11 +5,10 @@ interface IRequest {
   user_id: string;
 }
 
-class TurnUserAdminUseCase {
+export class TurnUserAdminUseCase {
   constructor(private usersRepository: IUsersRepository) { }
 
   execute({ user_id }: IRequest): User {
-    // Complete aqui
     const userExists = this.usersRepository.findById(user_id);
 
     if (!userExists) {
@@ -17,12 +16,6 @@ class TurnUserAdminUseCase {
     }
 
     const adminUser = this.usersRepository.turnAdmin(userExists)
-
-
     return adminUser;
-
-
   }
 }
-
-export { TurnUserAdminUseCase };

@@ -1,0 +1,14 @@
+  [POST] /users
+    ✓ should be able to create new users (40 ms)
+    ✓ should not be able to create new users when email is already taken (3 ms)
+  [GET] /users
+    ✓ should be able to list all users (3 ms)
+    ✓ should not be able to a non admin user get list of all users (1 ms)
+    ✓ should not be able to a non admin user get list of all users (2 ms)
+    ✓ should not be able to a non existing user get list of all users (1 ms)
+  [PATCH] /users/:user_id/admin
+    ✓ should be able to turn an user as admin (2 ms)
+    ✓ should not be able to turn a non existing user as admin (2 ms)
+  [GET] /users/:user_id
+    ✓ should be able to get user profile by ID (1 ms)
+    ✓ should not be able to show profile of a non existing user (2 ms)

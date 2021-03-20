@@ -6,11 +6,14 @@ interface IRequest {
   email: string;
 }
 
-class CreateUserUseCase {
-  // eslint-disable-next-line prettier/prettier
+export class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) { }
 
   execute({ email, name }: IRequest): User {
+    if (!email || !name) {
+      throw new Error("Invalid json");
+    }
+
     const userExists = this.usersRepository.findByEmail(email);
 
     if (userExists) {
@@ -25,5 +28,3 @@ class CreateUserUseCase {
     return newUser;
   }
 }
-
-export { CreateUserUseCase };
